@@ -11,7 +11,7 @@ import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var database:DatabaseReference
+    private lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
             val age = binding.editTextAge.text.toString().toInt()
             val userName = binding.editTextUsername.text.toString()
 
-            database = FirebaseDatabase.getInstance().getReference("User")
+//            database = FirebaseDatabase.getInstance().getReference("Users")
+
             database = Firebase.database.reference
 
             val user = User(firstName, lastName, age, userName)
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
-                Toast.makeText(this,"error occured", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "error occured", Toast.LENGTH_SHORT).show()
             }
         }
     }
