@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
             val age = binding.editTextAge.text.toString().toInt()
             val userName = binding.editTextUsername.text.toString()
 
-//            database = FirebaseDatabase.getInstance().getReference("Users")
+            database = FirebaseDatabase.getInstance().getReference("Users")
 
-            database = Firebase.database.reference
+//            database = Firebase.database.reference
 
             val user = User(firstName, lastName, age, userName)
             database.child(userName).setValue(user).addOnSuccessListener {
